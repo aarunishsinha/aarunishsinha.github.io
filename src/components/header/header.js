@@ -4,7 +4,7 @@ export default class Header extends Component {
     return (
       <React.Fragment>
       <header id="home">
-        <div class="row s-header__nav-wrap">
+        <div class="row s-header__nav-wrap fixed-top">
             <nav class="s-header__nav">
                 <ul>
                     <li class="current"><a class="smoothscroll" href="#hero">Home</a></li>
