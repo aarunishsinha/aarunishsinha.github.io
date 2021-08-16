@@ -15,7 +15,7 @@ export default class Header extends Component {
                     <li><a class="smoothscroll" href="#contact">Say Hello</a></li>
                 </ul>
             </nav>
-        </div> <!-- end row -->
+        </div>
 
         <a class="s-header__menu-toggle" href="#0" title="Menu">
             <span class="s-header__menu-icon"></span>
