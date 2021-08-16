@@ -1,4 +1,4 @@
-/* =================================================================== 
+/* ===================================================================
  * Ceevee Main Stylesheet
  * Template Ver. 2.0.0
  * 01-03-2021
@@ -26,9 +26,9 @@
  *      ## block grids - tablets
  *      ## block grids - mobile devices
  *      ## block grids - small mobile devices <= 400px
- * # MISC 
+ * # MISC
  * # custom grid, block grid STACK breakpoints
- * # base style overrides 
+ * # base style overrides
  *      ## links
  * # typography & general theme styles
  *      ## Lists
@@ -38,25 +38,25 @@
  *      ## spacing
  * # preloader
  *      ## page loaded
- * # forms 
+ * # forms
  *      ## Style Placeholder Text
- * # buttons 
+ * # buttons
  * # additional components
  *      ## skillbars
  *      ## alert box
- *      ## pagination 
+ *      ## pagination
  * # common and reusable styles
- *      ## animation stuff 
+ *      ## animation stuff
  *      ## MailtoUI style overrides
  * # site header
  *      ## header nav
- *      ## mobile menu toggle 
+ *      ## mobile menu toggle
  * # hero
  *      ## hero content
  *      ## hero social
  *      ## hero scrolldown
  *      ## animate intro content
- * # resume 
+ * # resume
  *      ## resume block
  * # portfolio
  *      ## portfolio list
@@ -64,7 +64,7 @@
  * # CTA
  * # testimonials
  *      ## swiper style overrides
- *      ## testimonial slider 
+ *      ## testimonial slider
  * # contact
  *      ## contact block
  * # footer
@@ -80,7 +80,7 @@
  *
  * ------------------------------------------------------------------- */
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## fonts
  * ------------------------------------------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap");
@@ -92,7 +92,7 @@
     --font-mono: Consolas, "Andale Mono", Courier, "Courier New", monospace;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## colors
  * ------------------------------------------------------------------- */
 :root {
@@ -114,7 +114,7 @@
     --color-2-darker : hsla(24, 100%, 27%, 1);
 
     /* feedback colors
-     * color-error(#ffd1d2), color-success(#c8e675), 
+     * color-error(#ffd1d2), color-success(#c8e675),
      * color-info(#d7ecfb), color-notice(#fff099)
      */
     --color-error          : hsla(359, 100%, 91%, 1);
@@ -126,9 +126,9 @@
     --color-info-content   : hsla(205, 32%, 31%, 1);
     --color-notice-content : hsla(51, 30%, 30%, 1);
 
-    /* shades 
-     * generated using 
-     * Tint & Shade Generator 
+    /* shades
+     * generated using
+     * Tint & Shade Generator
      * (https://maketintsandshades.com/)
      */
     --color-black  : #000000;
@@ -182,20 +182,20 @@
     --border-radius: 5px;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## vertical spacing and typescale
  * ------------------------------------------------------------------- */
 :root {
 
     /* spacing
-     * base font size: 18px 
+     * base font size: 18px
      * vertical space unit : 32px
      */
     --base-size: 62.5%;
     --base-font-size: 1.8rem;
     --space: 3.2rem;
 
-    /* vertical spacing 
+    /* vertical spacing
      */
     --vspace-0_125: calc(0.125 * var(--space));
     --vspace-0_25 : calc(0.25 * var(--space));
@@ -259,7 +259,7 @@
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## grid variables
  * ------------------------------------------------------------------- */
 :root {
@@ -290,7 +290,7 @@
  *
  * -------------------------------------------------------------------------- */
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## document
  * ------------------------------------------------------------------- */
 
@@ -304,7 +304,7 @@ html {
     /* 2 */
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## sections
  * ------------------------------------------------------------------- */
 
@@ -328,7 +328,7 @@ h1 {
     margin: 0.67em 0;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## grouping
  * ------------------------------------------------------------------- */
 
@@ -355,7 +355,7 @@ pre {
     /* 2 */
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## text-level semantics
  * ------------------------------------------------------------------- */
 
@@ -418,7 +418,7 @@ sup {
     top: -0.5em;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## embedded content
  * ------------------------------------------------------------------- */
 
@@ -428,7 +428,7 @@ img {
     border-style: none;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## forms
  * ------------------------------------------------------------------- */
 
@@ -563,7 +563,7 @@ textarea {
     /* 2 */
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## interactive
  * ------------------------------------------------------------------- */
 
@@ -579,7 +579,7 @@ summary {
     display: list-item;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## misc
  * ------------------------------------------------------------------- */
 
@@ -622,7 +622,7 @@ body {
     -webkit-text-size-adjust: none;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## media
  * ------------------------------------------------------------------- */
 svg, img, video embed, iframe, object {
@@ -630,7 +630,7 @@ svg, img, video embed, iframe, object {
     height: auto;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## typography resets
  * ------------------------------------------------------------------- */
 div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
@@ -666,7 +666,7 @@ li {
     display: block;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## links
  * ------------------------------------------------------------------- */
 a {
@@ -678,7 +678,7 @@ a img {
     border: none;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## inputs
  * ------------------------------------------------------------------- */
 fieldset {
@@ -686,12 +686,12 @@ fieldset {
     padding: 0;
 }
 
-input[type="email"], 
-input[type="number"], 
-input[type="search"], 
-input[type="text"], 
-input[type="tel"], 
-input[type="url"], 
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
 input[type="password"], textarea {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -703,9 +703,9 @@ input[type="password"], textarea {
  * # Grid v3.0.0
  *
  *   -----------------------------------------------------------------
- * - Grid breakpoints are based on MAXIMUM WIDTH media queries, 
+ * - Grid breakpoints are based on MAXIMUM WIDTH media queries,
  *   meaning they apply to that one breakpoint and ALL THOSE BELOW IT.
- * - Grid columns without a specified width will automatically layout 
+ * - Grid columns without a specified width will automatically layout
  *   as equal width columns.
  * ------------------------------------------------------------------- */
 
@@ -862,7 +862,7 @@ input[type="password"], textarea {
     align-self: flex-end;
 }
 
-/* large screen column widths 
+/* large screen column widths
  */
 .large-1 {
     -ms-flex: 0 0 8.33333%;
@@ -948,7 +948,7 @@ input[type="password"], textarea {
     max-width: 100%;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## medium screen devices
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 1200px) {
@@ -1033,7 +1033,7 @@ input[type="password"], textarea {
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## tablets
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 800px) {
@@ -1117,7 +1117,7 @@ input[type="password"], textarea {
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## mobile devices
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 600px) {
@@ -1212,7 +1212,7 @@ input[type="password"], textarea {
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## small mobile devices <= 400px
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 400px) {
@@ -1290,7 +1290,7 @@ input[type="password"], textarea {
     max-width: 100%;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## block grids - medium screen devices
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 1200px) {
@@ -1338,7 +1338,7 @@ input[type="password"], textarea {
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## block grids - tablets
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 800px) {
@@ -1386,7 +1386,7 @@ input[type="password"], textarea {
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## block grids - mobile devices
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 600px) {
@@ -1434,7 +1434,7 @@ input[type="password"], textarea {
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## block grids - small mobile devices <= 400px
  * ------------------------------------------------------------------- */
 @media screen and (max-width: 400px) {
@@ -1451,7 +1451,7 @@ input[type="password"], textarea {
 
 
 /* ===================================================================
- * # MISC 
+ * # MISC
  *
  * ------------------------------------------------------------------- */
 .h-group:after {
@@ -1569,7 +1569,7 @@ input[type="password"], textarea {
 }
 
 /* ===================================================================
- * # base style overrides 
+ * # base style overrides
  *
  * ------------------------------------------------------------------- */
 html {
@@ -1592,7 +1592,7 @@ body {
     padding: 0;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## links
  * ------------------------------------------------------------------- */
 a {
@@ -1612,7 +1612,7 @@ a:hover, a:active {
 
 /* ===================================================================
  * # typography & general theme styles
- * 
+ *
  * ------------------------------------------------------------------- */
 
 /* type scale - ratio 1:2 | base: 18px
@@ -1629,7 +1629,7 @@ a:hover, a:active {
  * --text-sm        = (15.00px)
  * --text-xs        = (12.50px)
  * -------------------------------------------------------------------- */
-h1, h2, h3, h4, h5, h6, 
+h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: var(--font-1);
     font-weight: 600;
@@ -1868,7 +1868,7 @@ hr.fancy::before {
     letter-spacing: .3em;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## Lists
  * ------------------------------------------------------------------- */
 ol {
@@ -1924,7 +1924,7 @@ dd {
     margin: 0 0 0 2rem;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## responsive video container
  * ------------------------------------------------------------------- */
 .video-container {
@@ -1934,9 +1934,9 @@ dd {
     overflow: hidden;
 }
 
-.video-container iframe, 
-.video-container object, 
-.video-container embed, 
+.video-container iframe,
+.video-container object,
+.video-container embed,
 .video-container video {
     position: absolute;
     top: 0;
@@ -1945,8 +1945,8 @@ dd {
     height: 100%;
 }
 
-/* ------------------------------------------------------------------- 
- * ## floated image 
+/* -------------------------------------------------------------------
+ * ## floated image
  * ------------------------------------------------------------------- */
 img.h-pull-right {
     margin: var(--vspace-0_5) 0 var(--vspace-0_5) 2.8rem;
@@ -1956,7 +1956,7 @@ img.h-pull-left {
     margin: var(--vspace-0_5) 2.8rem var(--vspace-0_5) 0;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## tables
  * ------------------------------------------------------------------- */
 table {
@@ -1993,36 +1993,36 @@ th:last-child, td:last-child {
     -webkit-overflow-scrolling: touch;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## spacing
  * ------------------------------------------------------------------- */
-fieldset, 
-button, 
+fieldset,
+button,
 .btn {
     margin-bottom: var(--vspace-0_5);
 }
 
-input, 
-textarea, 
-select, 
-pre, 
-blockquote, 
-figure, 
-figcaption, 
-table, 
-p, 
-ul, 
-ol, 
-dl, 
-form, 
-img, 
-.video-container, 
+input,
+textarea,
+select,
+pre,
+blockquote,
+figure,
+figcaption,
+table,
+p,
+ul,
+ol,
+dl,
+form,
+img,
+.video-container,
 .ss-custom-select {
     margin-bottom: var(--vspace-1);
 }
 
 
-/* =================================================================== 
+/* ===================================================================
  * # preloader
  *
  * ------------------------------------------------------------------- */
@@ -2098,7 +2098,7 @@ img,
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## page loaded
  * ------------------------------------------------------------------- */
 .ss-loaded #preloader {
@@ -2116,21 +2116,21 @@ img,
 
 
 /* ===================================================================
- * # forms 
+ * # forms
  *
  * ------------------------------------------------------------------- */
 fieldset {
     border: none;
 }
 
-input[type="email"], 
-input[type="number"], 
-input[type="search"], 
-input[type="text"], 
-input[type="tel"], 
-input[type="url"], 
-input[type="password"], 
-textarea, 
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea,
 select {
     --input-height: var(--vspace-2);
     --input-line-height: var(--vspace-1);
@@ -2200,14 +2200,14 @@ textarea {
     min-height: 25.6rem;
 }
 
-input[type="email"]:focus, 
-input[type="number"]:focus, 
-input[type="search"]:focus, 
-input[type="text"]:focus, 
-input[type="tel"]:focus, 
-input[type="url"]:focus, 
-input[type="password"]:focus, 
-textarea:focus, 
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="search"]:focus,
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+textarea:focus,
 select:focus {
     color: var(--color-black);
     border-bottom: 1px solid var(--color-1);
@@ -2223,7 +2223,7 @@ label, legend {
     display: block;
 }
 
-input[type="checkbox"], 
+input[type="checkbox"],
 input[type="radio"] {
     display: inline;
 }
@@ -2235,14 +2235,14 @@ label>.label-text {
     line-height: inherit;
 }
 
-label>input[type="checkbox"], 
+label>input[type="checkbox"],
 label>input[type="radio"] {
     margin: 0;
     position: relative;
     top: .2rem;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## Style Placeholder Text
  * ------------------------------------------------------------------- */
 ::-webkit-input-placeholder {
@@ -2267,13 +2267,13 @@ label>input[type="radio"] {
 
 
 /* ===================================================================
- * # buttons 
+ * # buttons
  *
  * ------------------------------------------------------------------- */
-.btn, 
-button, 
-input[type="submit"], 
-input[type="reset"], 
+.btn,
+button,
+input[type="submit"],
+input[type="reset"],
 input[type="button"] {
     --btn-height: var(--vspace-btn);
     display: inline-block;
@@ -2300,15 +2300,15 @@ input[type="button"] {
     border: 0.2rem solid var(--color-btn);
 }
 
-.btn:hover, 
-button:hover, 
-input[type="submit"]:hover, 
-input[type="reset"]:hover, 
-input[type="button"]:hover, 
-.btn:focus, 
-button:focus, 
-input[type="submit"]:focus, 
-input[type="reset"]:focus, 
+.btn:hover,
+button:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover,
+input[type="button"]:hover,
+.btn:focus,
+button:focus,
+input[type="submit"]:focus,
+input[type="reset"]:focus,
 input[type="button"]:focus {
     background-color: var(--color-btn-hover);
     border-color: var(--color-btn-hover);
@@ -2318,25 +2318,25 @@ input[type="button"]:focus {
 
 /* button primary
  * ------------------------------------------------- */
-.btn.btn--primary, 
-button.btn--primary, 
-input[type="submit"].btn--primary, 
-input[type="reset"].btn--primary, 
+.btn.btn--primary,
+button.btn--primary,
+input[type="submit"].btn--primary,
+input[type="reset"].btn--primary,
 input[type="button"].btn--primary {
     background: var(--color-btn-primary);
     border-color: var(--color-btn-primary);
     color: var(--color-btn-primary-text);
 }
 
-.btn.btn--primary:hover, 
-button.btn--primary:hover, 
-input[type="submit"].btn--primary:hover, 
-input[type="reset"].btn--primary:hover, 
-input[type="button"].btn--primary:hover, 
-.btn.btn--primary:focus, 
-button.btn--primary:focus, 
-input[type="submit"].btn--primary:focus, 
-input[type="reset"].btn--primary:focus, 
+.btn.btn--primary:hover,
+button.btn--primary:hover,
+input[type="submit"].btn--primary:hover,
+input[type="reset"].btn--primary:hover,
+input[type="button"].btn--primary:hover,
+.btn.btn--primary:focus,
+button.btn--primary:focus,
+input[type="submit"].btn--primary:focus,
+input[type="reset"].btn--primary:focus,
 input[type="button"].btn--primary:focus {
     background: var(--color-btn-primary-hover);
     border-color: var(--color-btn-primary-hover);
@@ -2381,12 +2381,12 @@ input[type="button"].btn--primary:focus {
 }
 
 
-/* =================================================================== 
+/* ===================================================================
  * # additional components
  *
  * ------------------------------------------------------------------- */
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## additional typo styles - (_additional-typo.scss)
  * ------------------------------------------------------------------- */
 .drop-cap:first-letter {
@@ -2401,7 +2401,7 @@ input[type="button"].btn--primary:focus {
     color: var(--color-text-dark);
 }
 
-/* line definition style 
+/* line definition style
  * ----------------------------------------------- */
 .lining dt, .lining dd {
     display: inline;
@@ -2426,7 +2426,7 @@ input[type="button"].btn--primary:focus {
     margin-left: -0.2em;
 }
 
-/* dictionary definition style 
+/* dictionary definition style
  * ----------------------------------------------- */
 .dictionary-style dt {
     display: inline;
@@ -2447,7 +2447,7 @@ input[type="button"].btn--primary:focus {
     content: counter(definitions, decimal) ". ";
 }
 
-/** 
+/**
  * Pull Quotes
  * -----------
  * markup:
@@ -2497,7 +2497,7 @@ input[type="button"].btn--primary:focus {
     left: 50%;
 }
 
-/** 
+/**
  * Stats Tab
  * ---------
  * markup:
@@ -2552,7 +2552,7 @@ input[type="button"].btn--primary:focus {
     color: var(--color-text-light);
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## skillbars
  * ------------------------------------------------------------------- */
 .skill-bars-fat {
@@ -2677,7 +2677,7 @@ input[type="button"].btn--primary:focus {
     width: 100%;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## alert box
  * ------------------------------------------------------------------- */
 .alert-box {
@@ -2703,7 +2703,7 @@ input[type="button"].btn--primary:focus {
     height: 12px;
 }
 
-.alert-box__close::before, 
+.alert-box__close::before,
 .alert-box__close::after {
     content: '';
     position: absolute;
@@ -2729,7 +2729,7 @@ input[type="button"].btn--primary:focus {
     color: var(--color-error-content);
 }
 
-.alert-box--error .alert-box__close::before, 
+.alert-box--error .alert-box__close::before,
 .alert-box--error .alert-box__close::after {
     background-color: var(--color-error-content);
 }
@@ -2739,7 +2739,7 @@ input[type="button"].btn--primary:focus {
     color: var(--color-success-content);
 }
 
-.alert-box--success .alert-box__close::before, 
+.alert-box--success .alert-box__close::before,
 .alert-box--success .alert-box__close::after {
     background-color: var(--color-success-content);
 }
@@ -2749,7 +2749,7 @@ input[type="button"].btn--primary:focus {
     color: var(--color-info-content);
 }
 
-.alert-box--info .alert-box__close::before, 
+.alert-box--info .alert-box__close::before,
 .alert-box--info .alert-box__close::after {
     background-color: var(--color-info-content);
 }
@@ -2759,7 +2759,7 @@ input[type="button"].btn--primary:focus {
     color: var(--color-notice-content);
 }
 
-.alert-box--notice .alert-box__close::before, 
+.alert-box--notice .alert-box__close::before,
 .alert-box--notice .alert-box__close::after {
     background-color: var(--color-notice-content);
 }
@@ -2772,7 +2772,7 @@ input[type="button"].btn--primary:focus {
 }
 
 /* -------------------------------------------------------------------
- * ## pagination 
+ * ## pagination
  * ------------------------------------------------------------------- */
 .pgn {
     --pgn-num-height: calc(var(--vspace-1) + .4rem);
@@ -2871,9 +2871,9 @@ input[type="button"].btn--primary:focus {
     fill: var(--color-text-dark);
 }
 
-.pgn__prev:hover svg path, 
-.pgn__prev:focus svg path, 
-.pgn__next:hover svg path, 
+.pgn__prev:hover svg path,
+.pgn__prev:focus svg path,
+.pgn__next:hover svg path,
 .pgn__next:focus svg path {
     fill: white;
 }
@@ -2886,18 +2886,18 @@ input[type="button"].btn--primary:focus {
     right: 0;
 }
 
-.pgn__prev.inactive, 
+.pgn__prev.inactive,
 .pgn__next.inactive {
     opacity: 0.4;
     cursor: default;
 }
 
-.pgn__prev.inactive:hover, 
+.pgn__prev.inactive:hover,
 .pgn__next.inactive:hover {
     background-color: transparent;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * pagination
  * ------------------------------------------------------------------- */
@@ -2950,15 +2950,15 @@ input[type="button"].btn--primary:focus {
     bottom: 0;
 }
 
-/* ------------------------------------------------------------------- 
- * ## animation stuff 
+/* -------------------------------------------------------------------
+ * ## animation stuff
  * ------------------------------------------------------------------- */
 .animate-this {
     opacity: 0;
     visibility: hidden;
 }
 
-.no-js .animate-this, 
+.no-js .animate-this,
 .no-cssanimations .animate-this {
     opacity: 1;
     visibility: visible;
@@ -3006,7 +3006,7 @@ input[type="button"].btn--primary:focus {
     }
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## MailtoUI style overrides
  * ------------------------------------------------------------------- */
 .mailtoui-modal {
@@ -3085,9 +3085,9 @@ input[type="button"].btn--primary:focus {
     box-shadow: none;
 }
 
-.mailtoui-button-content:hover, 
-.mailtoui-button-content:focus, 
-.mailtoui-button-copy:hover, 
+.mailtoui-button-content:hover,
+.mailtoui-button-content:focus,
+.mailtoui-button-copy:hover,
 .mailtoui-button-copy:focus {
     background-color: var(--mailtoui-button-bgcolor-hover);
     color: var(--mailtoui-button-text-color-hover);
@@ -3103,8 +3103,8 @@ input[type="button"].btn--primary:focus {
     line-height: var(--vspace-1);
 }
 
-.mailtoui-button-copy-clicked, 
-.mailtoui-button-copy-clicked:hover, 
+.mailtoui-button-copy-clicked,
+.mailtoui-button-copy-clicked:hover,
 .mailtoui-button-copy-clicked:focus {
     background-color: #1F9D55;
     color: white;
@@ -3127,7 +3127,7 @@ input[type="button"].btn--primary:focus {
     color: white;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * common and reusable styles
  * ------------------------------------------------------------------- */
@@ -3243,8 +3243,8 @@ input[type="button"].btn--primary:focus {
     color: var(--color-2);
 }
 
-/* ------------------------------------------------------------------- 
- * ## mobile menu toggle 
+/* -------------------------------------------------------------------
+ * ## mobile menu toggle
  * ------------------------------------------------------------------- */
 .s-header__menu-toggle {
     display: none;
@@ -3277,7 +3277,7 @@ input[type="button"].btn--primary:focus {
     transition: all .5s;
 }
 
-.s-header__menu-toggle .s-header__menu-icon::before, 
+.s-header__menu-toggle .s-header__menu-icon::before,
 .s-header__menu-toggle .s-header__menu-icon::after {
     content: '';
     width: 100%;
@@ -3303,7 +3303,7 @@ input[type="button"].btn--primary:focus {
     transition: all .1s;
 }
 
-.s-header__menu-toggle.is-clicked .s-header__menu-icon::before, 
+.s-header__menu-toggle.is-clicked .s-header__menu-icon::before,
 .s-header__menu-toggle.is-clicked .s-header__menu-icon::after {
     background-color: white;
 }
@@ -3320,7 +3320,7 @@ input[type="button"].btn--primary:focus {
     transform: rotate(225deg);
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * header
  * ------------------------------------------------------------------- */
@@ -3334,6 +3334,7 @@ input[type="button"].btn--primary:focus {
         padding: 0;
     }
     .s-header__nav-wrap, .s-header__nav {
+        position: fixed;
         background-color: #050505;
     }
     .s-header__nav-wrap {
@@ -3481,7 +3482,7 @@ input[type="button"].btn--primary:focus {
     opacity: .4;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## hero content
  * ------------------------------------------------------------------- */
 .s-hero__content {
@@ -3537,7 +3538,7 @@ input[type="button"].btn--primary:focus {
     left: 50%;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## hero social
  * ------------------------------------------------------------------- */
 .s-hero__content-social {
@@ -3558,7 +3559,7 @@ input[type="button"].btn--primary:focus {
     margin-right: var(--vspace-0_75);
 }
 
-.s-hero__content-social a:hover, 
+.s-hero__content-social a:hover,
 .s-hero__content-social a:focus {
     color: var(--color-2-light);
 }
@@ -3567,7 +3568,7 @@ input[type="button"].btn--primary:focus {
     margin-right: 0;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## hero scrolldown
  * ------------------------------------------------------------------- */
 .s-hero__scroll {
@@ -3595,7 +3596,7 @@ input[type="button"].btn--primary:focus {
     color: white;
 }
 
-.s-hero__scroll-link:hover .scroll-text::after, 
+.s-hero__scroll-link:hover .scroll-text::after,
 .s-hero__scroll-link:focus .scroll-text::after {
     width: 100%;
 }
@@ -3644,7 +3645,7 @@ input[type="button"].btn--primary:focus {
 /* -------------------------------------------------------------------
  * ## animate hero content
  * ------------------------------------------------------------------- */
-.ss-preload .s-header, 
+.ss-preload .s-header,
 .ss-preload .s-hero {
     visibility: hidden;
     opacity: 0;
@@ -3668,7 +3669,7 @@ input[type="button"].btn--primary:focus {
     animation-fill-mode: both;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * hero
  * ------------------------------------------------------------------- */
@@ -3802,7 +3803,7 @@ input[type="button"].btn--primary:focus {
     color: rgba(255, 255, 255, 0.4);
 }
 
-.s-about__content-bottom a:hover, 
+.s-about__content-bottom a:hover,
 .s-about__content-bottom a:focus {
     color: white;
 }
@@ -3823,18 +3824,18 @@ input[type="button"].btn--primary:focus {
     transition: all 0.3s ease-in-out;
 }
 
-.s-about__content-bottom .btn--download:hover, 
+.s-about__content-bottom .btn--download:hover,
 .s-about__content-bottom .btn--download:focus {
     background-color: var(--color-2);
     border-color: var(--color-2);
 }
 
-.s-about__content-bottom .btn--download:hover svg path, 
+.s-about__content-bottom .btn--download:hover svg path,
 .s-about__content-bottom .btn--download:focus svg path {
     fill: white;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * about
  * ------------------------------------------------------------------- */
@@ -3878,7 +3879,7 @@ input[type="button"].btn--primary:focus {
 
 
 /* ===================================================================
- * # resume 
+ * # resume
  *
  * ------------------------------------------------------------------- */
 .s-resume {
@@ -3899,7 +3900,7 @@ input[type="button"].btn--primary:focus {
     margin-bottom: 0;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## resume block
  * ------------------------------------------------------------------- */
 .resume-block {
@@ -3941,7 +3942,7 @@ input[type="button"].btn--primary:focus {
     margin-right: .2rem;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * resume
  * ------------------------------------------------------------------- */
@@ -3973,7 +3974,7 @@ input[type="button"].btn--primary:focus {
     text-align: center;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## portfolio list
  * ------------------------------------------------------------------- */
 .folio-list {
@@ -4057,7 +4058,7 @@ input[type="button"].btn--primary:focus {
     transform: scale(1.05);
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## modal popup
  * ------------------------------------------------------------------- */
 .modal-popup {
@@ -4131,7 +4132,7 @@ input[type="button"].btn--primary:focus {
     left: 4rem;
 }
 
-.modal-popup__details:hover, 
+.modal-popup__details:hover,
 .modal-popup__details:focus {
     background-color: var(--color-1);
     border-color: var(--color-1);
@@ -4180,7 +4181,7 @@ input[type="button"].btn--primary:focus {
     max-width: 600px;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * cta
  * ------------------------------------------------------------------- */
@@ -4275,7 +4276,7 @@ input[type="button"].btn--primary:focus {
     min-width: 0;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## swiper style overrides
  * ------------------------------------------------------------------- */
 .s-testimonials .swiper-container {
@@ -4298,8 +4299,8 @@ input[type="button"].btn--primary:focus {
     opacity: 1;
 }
 
-/* ------------------------------------------------------------------- 
- * ## testimonial slider 
+/* -------------------------------------------------------------------
+ * ## testimonial slider
  * ------------------------------------------------------------------- */
 .testimonial-slider {
     position: relative;
@@ -4337,7 +4338,7 @@ input[type="button"].btn--primary:focus {
     display: block;
 }
 
-.testimonial-slider__cite strong, 
+.testimonial-slider__cite strong,
 .testimonial-slider__cite span {
     font-style: normal;
 }
@@ -4356,7 +4357,7 @@ input[type="button"].btn--primary:focus {
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * testimonials
  * ------------------------------------------------------------------- */
@@ -4414,7 +4415,7 @@ input[type="button"].btn--primary:focus {
     margin-left: auto;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## contact block
  * ------------------------------------------------------------------- */
 .contact-infos .btn {
@@ -4443,7 +4444,7 @@ input[type="button"].btn--primary:focus {
     margin-bottom: .2rem;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * contact
  * ------------------------------------------------------------------- */
@@ -4527,7 +4528,7 @@ input[type="button"].btn--primary:focus {
     color: var(--color-2);
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## footer social
  * ------------------------------------------------------------------- */
 .s-footer__social {
@@ -4549,7 +4550,7 @@ input[type="button"].btn--primary:focus {
     color: white;
 }
 
-.s-footer__social a:focus, 
+.s-footer__social a:focus,
 .s-footer__social a:hover {
     color: var(--color-2);
 }
@@ -4559,7 +4560,7 @@ input[type="button"].btn--primary:focus {
     margin-right: 1.6rem;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## copyright
  * ------------------------------------------------------------------- */
 .ss-copyright {
@@ -4587,7 +4588,7 @@ input[type="button"].btn--primary:focus {
     display: none;
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * ## go top
  * ------------------------------------------------------------------- */
 .ss-go-top {
@@ -4624,7 +4625,7 @@ input[type="button"].btn--primary:focus {
     position: relative;
 }
 
-.ss-go-top a:hover, 
+.ss-go-top a:hover,
 .ss-go-top a:focus {
     background-color: var(--color-1);
 }
@@ -4645,7 +4646,7 @@ input[type="button"].btn--primary:focus {
     transform: translate(0, 0);
 }
 
-/* ------------------------------------------------------------------- 
+/* -------------------------------------------------------------------
  * responsive:
  * footer
  * ------------------------------------------------------------------- */
