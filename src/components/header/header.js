@@ -28,7 +28,7 @@ export default class Header extends Component {
             <div className="s-hero__content-about">
               <h1>I'm Aarunish Sinha.</h1>
               <h3>
-                I'm a <span>Senior Undergraduate Student</span> majoring in <span>Computer Science and Engineering</span> at <span>Indian Institute of Technology, Delhi</span>. Let's <a className="smoothscroll" href="#about">start scrolling</a>
+                I'm a <span>Senior Undergraduate Student</span> majoring in <span>Computer Science and Engineering</span> at <span>Indian Institute of Technology, Delhi</span>. Let's <a className="smoothscroll" href="#about">start scrolling </a>
                  and learn more <a className="smoothscroll" href="#about">about me</a>.
               </h3>
               <div className="s-hero__content-social">
