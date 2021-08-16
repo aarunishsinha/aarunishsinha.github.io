@@ -3,7 +3,7 @@ export default class ContactUs extends Component {
   render() {
     return (
       <React.Fragment>
-      <div>
+      <section id="contact" className="s-contact target-section">
         <div className="row s-contact__header">
           <div className="column large-12">
             <h3 className="section-header-allcaps">Say Hello</h3>
@@ -44,10 +44,7 @@ export default class ContactUs extends Component {
             </div> {/* end contact-infos */}
           </div>
         </div> {/* s-contact__content */}
-      </div>
-      <header id="home">
-        ....
-      </header>
+      </section>
       </React.Fragment>
     );
   }

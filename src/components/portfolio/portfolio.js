@@ -3,7 +3,7 @@ export default class Portfolio extends Component {
   render() {
     return (
       <React.Fragment>
-      <div>
+      <section id="portfolio" className="s-portfolio target-section">
         <div className="row s-portfolio__header">
           <div className="column large-12">
             <h3>A Few Of My Latest Creations</h3>
@@ -168,10 +168,7 @@ export default class Portfolio extends Component {
             <a href="https://www.behance.net/" className="modal-popup__details">Project link</a>
           </div>
         </div> {/* end modal */}
-      </div>
-      <header id="home">
-        ....
-      </header>
+      </section>
       </React.Fragment>
     );
   }

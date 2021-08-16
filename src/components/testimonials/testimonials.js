@@ -3,7 +3,7 @@ export default class Testimonials extends Component {
   render() {
     return (
       <React.Fragment>
-      <div>
+      <section id="testimonials" className="s-testimonials target-section">
         <div className="s-testimonials__bg" />
         <div className="row s-testimonials__header">
           <div className="column large-12">
@@ -75,10 +75,7 @@ export default class Testimonials extends Component {
             </div> {/* end swiper-container */}
           </div> {/* end column */}
         </div> {/* end row */}
-      </div>
-      <header id="home">
-        ....
-      </header>
+      </section>
       </React.Fragment>
     );
   }
