@@ -3,7 +3,6 @@ export default class Header extends Component {
   render() {
     return (
       <React.Fragment>
-      <body id="top" class="ss-preload">
       <header id="home">
         <div class="row s-header__nav-wrap">
             <nav class="s-header__nav">
@@ -52,7 +51,6 @@ export default class Header extends Component {
           </a>
         </div>
       </section>
-      </body>
       </React.Fragment>
     );
   }
