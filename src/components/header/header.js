@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 export default class Header extends Component {
   render() {
     return (
@@ -11,7 +11,6 @@ export default class Header extends Component {
                     <li><a class="smoothscroll" href="#about">About</a></li>
                     <li><a class="smoothscroll" href="#resume">Resume</a></li>
                     <li><a class="smoothscroll" href="#portfolio">Works</a></li>
-                    <li><a class="smoothscroll" href="#testimonials">Testimonials</a></li>
                     <li><a class="smoothscroll" href="#contact">Say Hello</a></li>
                 </ul>
             </nav>

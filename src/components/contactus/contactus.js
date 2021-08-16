@@ -24,22 +24,13 @@ export default class ContactUs extends Component {
                     Email
                   </h5>
                   <p className="contact-block__content">
-                    <a className="mailtoui" href="mailto:sayhello@ceevee.com">sayhello@ceevee.com</a>
+                    <a className="mailtoui" href="mailto:aarunish.sinha@gmail.com">aarunish.sinha@gmail.com</a>
                   </p>
                 </div> {/* end contact-block */}
               </div>
-              <div className="column large-12 medium-6 tab-12">
-                <div className="contact-block">
-                  <h5 className="contact-block__header">
-                    Phone
-                  </h5>
-                  <p className="contact-block__content">
-                    <a href="tel:+1975432345">+197 543 2345</a>
-                  </p>
-                </div> {/* end contact-block */}
-              </div>
+
               <div className="column large-12">
-                <a href="mailto:sayhello@ceevee.com" className="mailtoui btn btn--primary h-full-width">Let's Talk</a>
+                <a href="mailto:aarunish.sinha@gmail.com" className="mailtoui btn btn--primary h-full-width">Let's Talk</a>
               </div>
             </div> {/* end contact-infos */}
           </div>

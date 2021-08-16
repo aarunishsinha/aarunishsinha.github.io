@@ -11,16 +11,7 @@ export default class About extends Component {
           <div className="column large-9 tab-12 s-about__content">
             <h3>About Me</h3>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-              quae ab illo inventore veritatis et quasi architecto beatae vitae
-              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-              qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-              sed quia non numquam eius modi tempora incidunt ut labore et dolore
-              magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis
-              nostrum exercitationem ullam corporis suscipit laboriosam.
+              I'm a Senior Undergraduate Student majoring in Computer Science and Engineering at Indian Institute of Technology, Delhi. I'm interest in working the field of Machine Learning and Blockchain. I prefer a backend development over frontend but I do believe a good UI has it's benefits. Unlike most people I picked up reading as a hobby pretty late but now I'm very much into books. I also draw sometimes when time permits.
             </p>
             <hr />
             <div className="row s-about__content-bottom">
@@ -30,7 +21,7 @@ export default class About extends Component {
                   Aarunish Sinha <br />
                   {/* 1600 Amphitheatre Parkway <br /> */}
                   {/* Mountain View, CA 94043 US <br /> */}
-                  <a href="tel:+1975432345">+197 543 2345</a> <br />
+                  {/* <a href="tel:+1975432345">+197 543 2345</a> <br /> */}
                   <a href="mailto:aarunish.sinha@gmail.com">aarunish.sinha@gmail.com</a>
                 </p>
               </div>
