@@ -4,9 +4,6 @@ export default class Header extends Component {
     return (
       <React.Fragment>
       <body id="top" class="ss-preload">
-        <div id="preloader">
-          <div id="loader"></div>
-        </div>
       <header id="home">
         <div class="row s-header__nav-wrap">
             <nav class="s-header__nav">
