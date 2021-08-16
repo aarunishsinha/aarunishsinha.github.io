@@ -27,11 +27,11 @@ export default class About extends Component {
               <div className="column w-1000-stack">
                 <h3>Contact Details</h3>
                 <p>
-                  Jonathan Doe <br />
-                  1600 Amphitheatre Parkway <br />
-                  Mountain View, CA 94043 US <br />
+                  Aarunish Sinha <br />
+                  {/* 1600 Amphitheatre Parkway <br /> */}
+                  {/* Mountain View, CA 94043 US <br /> */}
                   <a href="tel:+1975432345">+197 543 2345</a> <br />
-                  <a href="mailto:#0">sayhello@ceevee.com</a>
+                  <a href="mailto:aarunish.sinha@gmail.com">aarunish.sinha@gmail.com</a>
                 </p>
               </div>
               <div className="column w-1000-stack">
