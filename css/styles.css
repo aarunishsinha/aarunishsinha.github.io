@@ -3334,7 +3334,7 @@ input[type="button"].btn--primary:focus {
         padding: 0;
     }
     .s-header__nav-wrap, .s-header__nav {
-        position: fixed;
+        position: sticky;
         background-color: #050505;
     }
     .s-header__nav-wrap {
