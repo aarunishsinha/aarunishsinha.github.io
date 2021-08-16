@@ -3,8 +3,12 @@ export default class Header extends Component {
   render() {
     return (
       <React.Fragment>
+      <body id="top" class="ss-preload">
+        <div id="preloader">
+          <div id="loader"></div>
+        </div>
       <header id="home">
-        <div class="row s-header__nav-wrap fixed-top">
+        <div class="row s-header__nav-wrap">
             <nav class="s-header__nav">
                 <ul>
                     <li class="current"><a class="smoothscroll" href="#hero">Home</a></li>
@@ -51,6 +55,7 @@ export default class Header extends Component {
           </a>
         </div>
       </section>
+      </body>
       </React.Fragment>
     );
   }
