@@ -1,0 +1,10 @@
+baseURL = 'https://aarunishsinha.github.io/'
+locale = 'en-us'
+title = 'Scaling from 0 to 1M'
+theme = 'PaperMod'
+
+[params]
+  defaultTheme = "dark"
+  ShowReadingTime = true
+  ShowToc = true
+  ShowCodeCopyButtons = true
