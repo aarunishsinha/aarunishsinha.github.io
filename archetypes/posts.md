@@ -1,11 +1,11 @@
 ---
-title: "{{ replace .Name "-" " " | title }}"
+title: "{{ replace .Name \"-\" \" \" | title }}"
 date: {{ .Date }}
 draft: true
 description: ""
 tags: ["system-design", "hld", "scaling"]
-series: [""]
-weight: 1
+series: [""]   # e.g. ["rate-limiter"] — groups this post under that system
+weight: 1      # level ordering: 1=0→1K, 2=1K→10K, 3=10K→100K, 4=100K→1M
 ShowToc: true
 TocOpen: false
 cover:
@@ -33,4 +33,3 @@ cover:
 ## What This Sets Up For Next Tier
 
 [1-2 sentences bridging to the next post.]
-

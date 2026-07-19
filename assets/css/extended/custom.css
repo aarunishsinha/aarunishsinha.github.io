@@ -1,0 +1,169 @@
+/* ============================================================
+   Aarunish's Engineering Notes — Custom PaperMod Overrides
+   ============================================================ */
+
+/* ---- Move theme toggle to far right of header ---- */
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.logo {
+  flex: 0 0 auto;
+}
+
+/* Pull the toggle switch out of the logo div visually */
+.logo-switches {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.header-nav {
+  position: relative;
+}
+
+#menu {
+  flex: 1;
+  justify-content: flex-end;
+  padding-right: 40px; /* space for the toggle */
+}
+
+/* --- Google Fonts loaded via extend_head.html --- */
+
+/* ---- Typography ---- */
+:root {
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+}
+
+/* ---- Warm accent color palette ---- */
+:root {
+  --accent: #f59e0b;          /* amber-500 */
+  --accent-soft: #fbbf24;     /* amber-400 */
+  --accent-glow: rgba(245, 158, 11, 0.15);
+}
+
+/* Links use the warm accent */
+.post-content a,
+.entry-content a {
+  color: var(--accent-soft);
+  text-decoration: underline;
+  text-decoration-color: rgba(251, 191, 36, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.post-content a:hover,
+.entry-content a:hover {
+  text-decoration-color: var(--accent-soft);
+}
+
+/* ---- Homepage hero polish ---- */
+.home-info .entry-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent) 0%, #f97316 50%, #ef4444 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease-in-out infinite;
+  background-size: 200% 200%;
+}
+
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.home-info .entry-content {
+  font-size: 1.05rem;
+  max-width: 640px;
+}
+
+/* ---- Post list cards — hover lift ---- */
+.post-entry {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 12px;
+}
+
+.post-entry:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* ---- Nav link animated underline ---- */
+#menu a {
+  position: relative;
+  text-decoration: none;
+}
+
+#menu a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 1px;
+}
+
+#menu a:hover::after,
+#menu a:active::after,
+#menu a.active::after {
+  width: 100%;
+}
+
+/* ---- Section page headers ---- */
+.terms-tags .page-header h1,
+.list .page-header h1 {
+  font-size: 1.8rem;
+}
+
+/* ---- Smoother code blocks ---- */
+.post-content pre {
+  border-radius: 10px;
+}
+
+/* ---- Social icon hover glow ---- */
+.social-icons a {
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px var(--accent-glow));
+}
+
+/* ---- Reading time & meta — subtle ---- */
+.post-meta {
+  opacity: 0.7;
+  font-size: 0.88rem;
+}
+
+/* ---- Table of contents polish ---- */
+.toc {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+}
+
+/* ---- Mobile adjustments ---- */
+@media (max-width: 768px) {
+  .home-info .entry-header h1 {
+    font-size: 1.7rem;
+  }
+
+  .home-info .entry-content {
+    font-size: 0.98rem;
+  }
+}
