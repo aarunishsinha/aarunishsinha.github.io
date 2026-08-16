@@ -18,9 +18,9 @@ theme = 'PaperMod'
   [params.homeInfoParams]
     Title = "Hey, I'm Aarunish 👋"
     Content = """
-I'm a software engineer who can't stop asking *"but how does it actually work?"*
+I'm a Software Engineer who can't stop asking *"but how does it actually work?"*
 
-This is where I write about the things I've dug into — from scaling systems from zero to a million users, to deep dives into the internals of tools and data structures we use every day.
+This is where I write about the things I've dug into. From scaling systems from zero to a million users, to deep dives into the internals of tools, data structures and algorithms we use every day.
 
 **I pull at threads until I understand.** If you like figuring out how things work from first principles, you'll feel at home here.
 """
