@@ -1,0 +1,68 @@
+{{- with hugo.Data.sparks }}
+{{- $sparks := . }}
+{{- $count := len $sparks }}
+{{- if gt $count 0 }}
+{{- $index := mod (int (math.Rand)) $count }}
+{{- /* Ensure non-negative index */ -}}
+{{- if lt $index 0 }}{{ $index = mul $index -1 }}{{ end }}
+{{- $spark := index $sparks $index }}
+
+<article class="curiosity-spark" id="curiosity-spark">
+  <div class="spark-collapsed" id="spark-collapsed">
+    <div class="spark-hook">
+      <span class="spark-icon" aria-hidden="true">✦</span>
+      <p>{{ $spark.hook }}</p>
+    </div>
+    <button class="spark-toggle" id="spark-toggle" aria-expanded="false" aria-controls="spark-details">
+      pull the thread →
+    </button>
+  </div>
+
+  <div class="spark-details" id="spark-details" aria-hidden="true">
+    <div class="spark-hook spark-hook--expanded">
+      <span class="spark-icon" aria-hidden="true">✦</span>
+      <p>{{ $spark.hook }}</p>
+    </div>
+    <div class="spark-writeup">
+      <p>{{ $spark.writeup }}</p>
+    </div>
+    {{- with $spark.origin }}
+    <div class="spark-origin">
+      <span class="spark-origin-label">Go deeper</span>
+      <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} ↗</a>
+    </div>
+    {{- end }}
+    <button class="spark-toggle spark-toggle--collapse" id="spark-collapse" aria-expanded="true" aria-controls="spark-details">
+      ← tuck it back
+    </button>
+  </div>
+</article>
+
+<script>
+(function() {
+  var toggle = document.getElementById('spark-toggle');
+  var collapse = document.getElementById('spark-collapse');
+  var collapsed = document.getElementById('spark-collapsed');
+  var details = document.getElementById('spark-details');
+
+  function expand() {
+    collapsed.setAttribute('aria-hidden', 'true');
+    collapsed.style.display = 'none';
+    details.setAttribute('aria-hidden', 'false');
+    details.classList.add('spark-details--open');
+  }
+
+  function collapseCard() {
+    details.setAttribute('aria-hidden', 'true');
+    details.classList.remove('spark-details--open');
+    collapsed.setAttribute('aria-hidden', 'false');
+    collapsed.style.display = '';
+  }
+
+  if (toggle) toggle.addEventListener('click', expand);
+  if (collapse) collapse.addEventListener('click', collapseCard);
+})();
+</script>
+
+{{- end }}
+{{- end }}

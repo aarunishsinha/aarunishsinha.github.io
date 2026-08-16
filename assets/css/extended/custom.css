@@ -157,6 +157,166 @@ body {
   padding-left: 1rem;
 }
 
+/* ============================================================
+   Curiosity Spark — Expandable card
+   ============================================================ */
+
+.curiosity-spark {
+  position: relative;
+  margin: 1.8rem 0 2.4rem;
+  padding: 1.4rem 1.6rem;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: 14px;
+  background: rgba(245, 158, 11, 0.04);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.06),
+              inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.curiosity-spark:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.1),
+              inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* ---- Hook (one-liner) ---- */
+.spark-hook {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.spark-icon {
+  flex-shrink: 0;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--accent);
+  animation: spark-pulse 3s ease-in-out infinite;
+}
+
+@keyframes spark-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 1; }
+}
+
+.spark-hook p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: var(--primary);
+  opacity: 0.92;
+}
+
+.spark-hook--expanded p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-style: normal;
+  opacity: 1;
+}
+
+/* ---- Toggle buttons ---- */
+.spark-toggle {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--accent-soft);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.spark-toggle:hover {
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.spark-toggle--collapse {
+  margin-top: 1.2rem;
+  color: var(--secondary);
+  font-size: 0.85rem;
+  font-weight: 400;
+  opacity: 0.6;
+}
+
+.spark-toggle--collapse:hover {
+  opacity: 1;
+  color: var(--accent-soft);
+}
+
+/* ---- Expanded details ---- */
+.spark-details {
+  display: none;
+}
+
+.spark-details.spark-details--open {
+  display: block;
+  animation: spark-expand 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes spark-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---- Write-up ---- */
+.spark-writeup {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(245, 158, 11, 0.12);
+}
+
+.spark-writeup p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  opacity: 0.85;
+}
+
+/* ---- Origin link ---- */
+.spark-origin {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+  padding: 0.7rem 1rem;
+  background: rgba(245, 158, 11, 0.06);
+  border-radius: 8px;
+  border: 1px solid rgba(245, 158, 11, 0.12);
+}
+
+.spark-origin-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.spark-origin a {
+  font-size: 0.9rem;
+  color: var(--accent-soft);
+  text-decoration: underline;
+  text-decoration-color: rgba(251, 191, 36, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.spark-origin a:hover {
+  text-decoration-color: var(--accent-soft);
+}
+
 /* ---- Mobile adjustments ---- */
 @media (max-width: 768px) {
   .home-info .entry-header h1 {
@@ -165,5 +325,20 @@ body {
 
   .home-info .entry-content {
     font-size: 0.98rem;
+  }
+
+  .curiosity-spark {
+    padding: 1.1rem 1.2rem;
+    margin: 1.4rem 0 2rem;
+  }
+
+  .spark-hook p {
+    font-size: 0.98rem;
+  }
+
+  .spark-origin {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
   }
 }
