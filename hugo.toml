@@ -13,16 +13,17 @@ theme = 'PaperMod'
   ShowToc = true
   ShowCodeCopyButtons = true
   ShowAllPagesInArchive = true
-  description = "Deep dives, scaling journeys, and engineering explorations — by someone who pulls at threads until they understand."
+  mainSections = ["posts"]
+  description = "Notes from pulling at threads — databases, systems, data structures, and whatever else won't let me sleep until I understand it."
 
   [params.homeInfoParams]
     Title = "Hey, I'm Aarunish 👋"
     Content = """
 I'm a Software Engineer who can't stop asking *"but how does it actually work?"*
 
-This is where I write about the things I've dug into. From scaling systems from zero to a million users, to deep dives into the internals of tools, data structures and algorithms we use every day.
+This blog is what happens when pop-science knowledge isn't enough and I need to actually understand something. I read from different sources, pull the threads together, and write notes that cut through the jargon without losing substance.
 
-**I pull at threads until I understand.** If you like figuring out how things work from first principles, you'll feel at home here.
+**If you're curious about how things really work, you'll feel at home here.**
 """
 
 [[params.socialIcons]]
@@ -34,19 +35,7 @@ This is where I write about the things I've dug into. From scaling systems from 
   url = "https://www.linkedin.com/in/aarunish-sinha-360ab1193/"
 
 [[menu.main]]
-  identifier = 'deep-dives'
-  name = '🔬 Deep Dives'
-  url = '/deep-dives/'
-  weight = 10
-
-[[menu.main]]
-  identifier = 'scale-0-to-1m'
-  name = '📈 Scale 0→1M'
-  url = '/scale-0-to-1m/'
-  weight = 20
-
-[[menu.main]]
   identifier = 'tags'
   name = 'Tags'
   url = '/tags/'
-  weight = 30
+  weight = 10
