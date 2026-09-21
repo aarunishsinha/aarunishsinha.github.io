@@ -1,0 +1,205 @@
+{{ $id := .Get "id" }}
+<figure class="tx-anim" id="tx-{{ $id }}" aria-label="Transaction animation">
+  <noscript><p style="padding:1rem;opacity:.6">Enable JavaScript to view the interactive animation.</p></noscript>
+</figure>
+<script type="application/json" id="tx-data-{{ $id }}">{{- .Inner | safeJS -}}</script>
+<script>
+(function(){
+/* ── Shared bootstrap (defined once, reused by all instances) ── */
+if(!window.TxAnim){
+  window.TxAnim={_:{}};
+  var T=window.TxAnim;
+
+  function h(tag,cls,txt){
+    var e=document.createElement(tag);
+    if(cls)e.className=cls;
+    if(txt!=null)e.textContent=txt;
+    return e;
+  }
+
+  function updDb(s,cells){
+    if(!cells)return;
+    for(var i=0;i<cells.length;i++){
+      var v=s.dbV[cells[i].key];
+      if(v){
+        v.textContent=cells[i].val;
+        v.classList.remove('tx-anim__db-val--flash');
+        void v.offsetWidth;
+        v.classList.add('tx-anim__db-val--flash');
+      }
+    }
+  }
+
+  /* ── Build DOM ── */
+  T.init=function(id){
+    var raw=document.getElementById('tx-data-'+id);
+    if(!raw)return;
+    var d=JSON.parse(raw.textContent);
+    var r=document.getElementById('tx-'+id);
+    if(!r)return;
+    r.innerHTML='';
+
+    var s={d:d,cur:0,playing:false,tmr:null,dbV:{},rows:[],res:null,prog:null,nBtn:null,pBtn:null};
+    T._[id]=s;
+
+    /* Label */
+    var lbl=h('div','tx-anim__label');
+    lbl.innerHTML='<span class="tx-anim__label-dot"></span> Interactive';
+    r.appendChild(lbl);
+
+    /* DB state bar */
+    var db=h('div','tx-anim__db');
+    db.appendChild(h('span','tx-anim__db-icon','\uD83D\uDCBE'));
+    for(var i=0;i<d.initialDb.length;i++){
+      var x=d.initialDb[i];
+      var cell=h('span','tx-anim__db-cell');
+      cell.appendChild(h('span','tx-anim__db-key',x.key+': '));
+      var val=h('span','tx-anim__db-val',x.val);
+      cell.appendChild(val);
+      db.appendChild(cell);
+      s.dbV[x.key]=val;
+    }
+    r.appendChild(db);
+
+    /* Lane headers */
+    var lh=h('div','tx-anim__lane-headers');
+    lh.appendChild(h('span','tx-anim__lane-lbl tx-anim__lane-lbl--alice','\uD83D\uDFE0 Alice'));
+    lh.appendChild(h('span','tx-anim__lane-lbl tx-anim__lane-lbl--bob','\uD83D\uDD35 Bob'));
+    r.appendChild(lh);
+
+    /* Timeline */
+    var tl=h('div','tx-anim__timeline');
+    for(var i=0;i<d.steps.length;i++){
+      var st=d.steps[i];
+      var row=h('div','tx-anim__row tx-anim__row--'+st.actor);
+      var card=h('div','tx-anim__card'+(st.status?' tx-anim__card--'+st.status:''));
+      card.appendChild(h('span','tx-anim__num',String(i+1)));
+      var body=h('div','tx-anim__body');
+      body.appendChild(h('code','tx-anim__sql',st.text));
+      if(st.note)body.appendChild(h('span','tx-anim__note',st.note));
+      card.appendChild(body);
+      row.appendChild(card);
+      row.style.display='none';
+      tl.appendChild(row);
+      s.rows.push({el:row,st:st});
+    }
+    r.appendChild(tl);
+
+    /* Result */
+    var res=h('div','tx-anim__result tx-anim__result--'+d.result.type);
+    res.appendChild(h('span','tx-anim__result-icon',d.result.type==='error'?'\u274C':'\u2705'));
+    res.appendChild(h('span','tx-anim__result-text',d.result.text));
+    res.style.display='none';
+    r.appendChild(res);
+    s.res=res;
+
+    /* Controls */
+    var ctrl=h('div','tx-anim__controls');
+    var rb=h('button','tx-anim__btn tx-anim__btn--reset','\u21BA');
+    rb.title='Reset';
+    rb.addEventListener('click',function(){T.reset(id)});
+
+    var pg=h('span','tx-anim__progress','Step 0 / '+d.steps.length);
+    s.prog=pg;
+
+    var nb=h('button','tx-anim__btn tx-anim__btn--next','Next \u2192');
+    nb.addEventListener('click',function(){T.next(id)});
+    s.nBtn=nb;
+
+    var pb=h('button','tx-anim__btn tx-anim__btn--play','\u25B6 Play');
+    pb.addEventListener('click',function(){T.play(id)});
+    s.pBtn=pb;
+
+    ctrl.appendChild(rb);
+    ctrl.appendChild(pg);
+    ctrl.appendChild(nb);
+    ctrl.appendChild(pb);
+    r.appendChild(ctrl);
+  };
+
+  /* ── Advance one step ── */
+  T.next=function(id){
+    var s=T._[id];
+    if(!s)return;
+
+    /* All steps shown → reveal result */
+    if(s.cur>=s.d.steps.length){
+      s.res.style.display='';
+      requestAnimationFrame(function(){s.res.classList.add('tx-anim__result--visible')});
+      s.nBtn.disabled=true;
+      s.pBtn.disabled=true;
+      if(s.tmr){clearInterval(s.tmr);s.tmr=null;s.playing=false;s.pBtn.textContent='\u25B6 Play'}
+      return;
+    }
+
+    /* Remove "latest" highlight from previous step */
+    if(s.cur>0)s.rows[s.cur-1].el.classList.remove('tx-anim__row--latest');
+
+    var e=s.rows[s.cur];
+    e.el.style.display='';
+    requestAnimationFrame(function(){
+      e.el.classList.add('tx-anim__row--visible');
+      e.el.classList.add('tx-anim__row--latest');
+    });
+
+    if(e.st.db)updDb(s,e.st.db);
+
+    s.cur++;
+    s.prog.textContent='Step '+s.cur+' / '+s.d.steps.length;
+
+    /* Auto-reveal result after last step (manual mode only) */
+    if(s.cur>=s.d.steps.length&&!s.playing){
+      setTimeout(function(){T.next(id)},700);
+    }
+  };
+
+  /* ── Play / Pause ── */
+  T.play=function(id){
+    var s=T._[id];
+    if(!s)return;
+    if(s.playing){
+      clearInterval(s.tmr);s.tmr=null;s.playing=false;
+      s.pBtn.textContent='\u25B6 Play';
+      return;
+    }
+    s.playing=true;
+    s.pBtn.textContent='\u23F8 Pause';
+    T.next(id);
+    s.tmr=setInterval(function(){
+      if(s.cur>s.d.steps.length){
+        clearInterval(s.tmr);s.tmr=null;s.playing=false;
+        s.pBtn.textContent='\u25B6 Play';
+        return;
+      }
+      T.next(id);
+    },1200);
+  };
+
+  /* ── Reset ── */
+  T.reset=function(id){
+    var s=T._[id];
+    if(!s)return;
+    if(s.tmr){clearInterval(s.tmr);s.tmr=null}
+    s.playing=false;
+    s.pBtn.textContent='\u25B6 Play';
+    s.cur=0;
+    for(var i=0;i<s.rows.length;i++){
+      s.rows[i].el.style.display='none';
+      s.rows[i].el.classList.remove('tx-anim__row--visible','tx-anim__row--latest');
+    }
+    s.res.style.display='none';
+    s.res.classList.remove('tx-anim__result--visible');
+    s.nBtn.disabled=false;
+    s.pBtn.disabled=false;
+    s.prog.textContent='Step 0 / '+s.d.steps.length;
+    for(var i=0;i<s.d.initialDb.length;i++){
+      var x=s.d.initialDb[i];
+      if(s.dbV[x.key])s.dbV[x.key].textContent=x.val;
+    }
+  };
+}
+
+/* ── Initialize this instance ── */
+window.TxAnim.init('{{ $id }}');
+})();
+</script>

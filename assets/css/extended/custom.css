@@ -342,3 +342,354 @@ body {
     gap: 0.3rem;
   }
 }
+
+/* ============================================================
+   Transaction Animation Widget
+   ============================================================ */
+
+.tx-anim {
+  margin: 1.8rem 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--entry);
+  overflow: hidden;
+}
+
+/* ---- Interactive label ---- */
+.tx-anim__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.tx-anim__label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: tx-label-pulse 2s ease-in-out infinite;
+}
+
+@keyframes tx-label-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+/* ---- DB state bar ---- */
+.tx-anim__db {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--code-bg);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.tx-anim__db-icon {
+  font-size: 0.95rem;
+}
+
+.tx-anim__db-cell {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.55rem;
+  background: rgba(128, 128, 128, 0.1);
+  border-radius: 6px;
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 0.78rem;
+  transition: background 0.3s;
+}
+
+.tx-anim__db-key {
+  opacity: 0.5;
+  margin-right: 0.15rem;
+}
+
+.tx-anim__db-val {
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.tx-anim__db-val--flash {
+  animation: tx-val-flash 0.65s ease;
+}
+
+@keyframes tx-val-flash {
+  0%   { color: var(--accent); }
+  100% { color: inherit; }
+}
+
+/* ---- Lane headers ---- */
+.tx-anim__lane-headers {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.55rem 1.2rem 0.25rem;
+}
+
+.tx-anim__lane-lbl {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tx-anim__lane-lbl--alice { color: #f59e0b; }
+.tx-anim__lane-lbl--bob   { color: #60a5fa; }
+
+/* ---- Timeline ---- */
+.tx-anim__timeline {
+  padding: 0.4rem 1.2rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 50px;
+}
+
+/* ---- Step rows ---- */
+.tx-anim__row {
+  display: flex;
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.tx-anim__row--alice { justify-content: flex-start; }
+.tx-anim__row--bob   { justify-content: flex-end; }
+
+.tx-anim__row--visible { opacity: 1; transform: none; }
+
+.tx-anim__row--alice.tx-anim__row--visible {
+  animation: tx-in-left 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.tx-anim__row--bob.tx-anim__row--visible {
+  animation: tx-in-right 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes tx-in-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes tx-in-right {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Latest step glow */
+.tx-anim__row--latest .tx-anim__card {
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.08);
+}
+
+/* ---- Step card ---- */
+.tx-anim__card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  max-width: 72%;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(128, 128, 128, 0.06);
+  transition: box-shadow 0.3s;
+}
+
+.tx-anim__row--alice .tx-anim__card {
+  border-left: 3px solid rgba(245, 158, 11, 0.45);
+}
+
+.tx-anim__row--bob .tx-anim__card {
+  border-left: none;
+  border-right: 3px solid rgba(96, 165, 250, 0.45);
+}
+
+.tx-anim__card--error {
+  background: rgba(239, 68, 68, 0.07) !important;
+}
+
+.tx-anim__card--blocked {
+  background: rgba(245, 158, 11, 0.05) !important;
+}
+
+/* ---- Step number badge ---- */
+.tx-anim__num {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.3rem;
+  height: 1.3rem;
+  border-radius: 50%;
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: rgba(128, 128, 128, 0.12);
+  color: var(--secondary);
+  line-height: 1;
+  margin-top: 1px;
+}
+
+/* ---- Step body ---- */
+.tx-anim__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.tx-anim__sql {
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: var(--primary);
+  word-break: break-word;
+  line-height: 1.4;
+  /* Override PaperMod inline code styles */
+  background: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.tx-anim__note {
+  font-size: 0.72rem;
+  color: var(--secondary);
+  font-style: italic;
+  opacity: 0.75;
+  line-height: 1.3;
+}
+
+.tx-anim__card--error .tx-anim__note {
+  color: #f87171;
+  opacity: 1;
+  font-weight: 500;
+}
+
+/* ---- Result panel ---- */
+.tx-anim__result {
+  margin: 0 1.2rem 0.8rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.tx-anim__result--error {
+  background: rgba(239, 68, 68, 0.06);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+}
+
+.tx-anim__result--success {
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+}
+
+.tx-anim__result--info {
+  background: rgba(96, 165, 250, 0.06);
+  border: 1px solid rgba(96, 165, 250, 0.15);
+}
+
+.tx-anim__result--visible {
+  animation: tx-result-in 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes tx-result-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.tx-anim__result-icon { flex-shrink: 0; }
+
+.tx-anim__result-text {
+  color: var(--primary);
+  opacity: 0.88;
+}
+
+/* ---- Controls ---- */
+.tx-anim__controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 1.2rem;
+  border-top: 1px solid var(--border);
+}
+
+.tx-anim__btn {
+  padding: 0.3rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: rgba(128, 128, 128, 0.06);
+  color: var(--primary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+  white-space: nowrap;
+}
+
+.tx-anim__btn:hover:not(:disabled) {
+  background: rgba(128, 128, 128, 0.14);
+  border-color: rgba(128, 128, 128, 0.3);
+}
+
+.tx-anim__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.tx-anim__btn--next {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.2);
+  color: var(--accent);
+}
+
+.tx-anim__btn--next:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.18);
+}
+
+.tx-anim__progress {
+  flex: 1;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--secondary);
+  opacity: 0.55;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 640px) {
+  .tx-anim__card {
+    max-width: 88%;
+  }
+
+  .tx-anim__sql {
+    font-size: 0.72rem;
+  }
+
+  .tx-anim__db {
+    gap: 0.5rem;
+  }
+
+  .tx-anim__db-cell {
+    font-size: 0.72rem;
+  }
+
+  .tx-anim__controls {
+    gap: 0.4rem;
+    padding: 0.55rem 0.8rem;
+  }
+
+  .tx-anim__btn {
+    padding: 0.25rem 0.55rem;
+    font-size: 0.75rem;
+  }
+}
+
