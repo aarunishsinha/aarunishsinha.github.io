@@ -693,3 +693,393 @@ body {
   }
 }
 
+/* ============================================================
+   Fibonacci post — "Can we do better?" callout
+   ============================================================ */
+
+.fib-better {
+  margin: 2rem 0 1.2rem;
+  padding: 1.1rem 1.3rem 1rem;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.04);
+}
+
+.post-content .fib-better__q {
+  margin: 0 0 0.8rem;
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.post-content .fib-better__strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-content .fib-better__step {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  min-width: 5.5rem;
+  margin: 0;
+  padding: 0.35rem 0.55rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: rgba(128, 128, 128, 0.06);
+  line-height: 1.3;
+}
+
+.fib-better__cost {
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.fib-better__name {
+  font-size: 0.7rem;
+  color: var(--secondary);
+}
+
+.fib-better__step.is-done { opacity: 0.6; }
+
+.fib-better__step.is-current {
+  opacity: 1;
+  border-color: rgba(245, 158, 11, 0.45);
+  background: rgba(245, 158, 11, 0.1);
+}
+
+.fib-better__step.is-current .fib-better__cost { color: var(--accent); }
+
+.fib-better__step.is-locked {
+  justify-content: center;
+  align-items: center;
+  border-style: dashed;
+  opacity: 0.45;
+}
+
+/* ============================================================
+   Fibonacci post — interactive visuals (assets/js/fib-viz.js)
+   Container/label/controls come from .tx-anim above.
+   ============================================================ */
+
+.fib-viz [hidden] { display: none !important; }
+
+.fib-viz__note {
+  padding: 0.55rem 1.2rem 0.7rem;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--secondary);
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  min-height: 2.6rem;
+}
+
+.fib-viz__field {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: var(--secondary);
+  white-space: nowrap;
+}
+
+.fib-viz__range { accent-color: var(--accent); width: 7rem; }
+
+.fib-viz__range-val {
+  min-width: 1ch;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.fib-viz__input {
+  width: 6rem;
+  padding: 0.2rem 0.45rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+  color: var(--primary);
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 0.8rem;
+}
+
+/* ---- 1. Recursion tree ---- */
+.fib-tree__canvas {
+  overflow-x: auto;
+  padding: 0.6rem 0.4rem 0;
+}
+
+.fib-tree__canvas svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.fib-tree__edge {
+  stroke: var(--secondary);
+  stroke-opacity: 0.35;
+  stroke-width: 1.5;
+}
+
+.fib-tree__edge--hit { stroke-dasharray: 3 3; }
+
+.fib-tree__node {
+  --c: rgb(128, 128, 128);
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.2s;
+}
+
+.fib-tree__node circle {
+  fill: color-mix(in srgb, var(--c) 22%, var(--entry));
+  stroke: var(--c);
+  stroke-width: 1.8;
+}
+
+.fib-tree__node text {
+  fill: var(--primary);
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.fib-tree__node--base circle { stroke-opacity: 0.5; }
+
+.fib-tree__node--hit circle {
+  fill: var(--entry);
+  stroke-dasharray: 3 2.5;
+}
+
+.fib-tree__canvas.is-focus .fib-tree__node:not(.is-match) { opacity: 0.2; }
+
+.fib-tree__node.is-match circle,
+.fib-tree__node:focus-visible circle { stroke-width: 3; }
+
+/* ---- 2. Bottom-up dp[] ---- */
+.fib-dp__wrap {
+  overflow-x: auto;
+  padding: 1rem 1.2rem 0.2rem;
+}
+
+.fib-dp {
+  display: flex;
+  gap: 0.3rem;
+  min-width: max-content;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.fib-dp__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  transition: opacity 0.35s;
+}
+
+.fib-dp__idx,
+.fib-dp__tag {
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 0.68rem;
+  color: var(--secondary);
+  min-height: 1em;
+  line-height: 1;
+}
+
+.fib-dp__tag { color: var(--accent); font-weight: 600; }
+
+.fib-dp__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--code-bg);
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+}
+
+.fib-dp__col.is-zero .fib-dp__cell { opacity: 0.35; font-weight: 400; }
+
+.fib-dp__col.is-source .fib-dp__cell {
+  border-color: rgba(96, 165, 250, 0.7);
+  background: rgba(96, 165, 250, 0.12);
+}
+
+.fib-dp__col.is-target .fib-dp__cell {
+  border-color: var(--accent);
+  background: rgba(245, 158, 11, 0.15);
+  transform: translateY(-3px);
+}
+
+.fib-dp__col.is-faded { opacity: 0.2; }
+
+.fib-dp__col.is-kept .fib-dp__cell {
+  border-color: var(--accent);
+  background: rgba(245, 158, 11, 0.12);
+}
+
+/* ---- 3. Binary exponentiation ---- */
+.fib-pow__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem 1rem;
+  padding: 0.3rem 1.2rem 0.6rem;
+}
+
+.fib-pow__bits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.fib-pow__bit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary);
+  transition: background 0.25s, border-color 0.25s, opacity 0.25s;
+}
+
+.fib-pow__bit.is-done { opacity: 0.4; }
+
+.fib-pow__bit.is-active {
+  opacity: 1;
+  border-color: var(--accent);
+  background: rgba(245, 158, 11, 0.15);
+}
+
+.fib-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0.7rem 1.2rem 0.8rem;
+  list-style: none;
+  max-height: 22rem;
+  overflow-y: auto;
+}
+
+.post-content .fib-steps__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  border-left: 3px solid rgba(245, 158, 11, 0.45);
+  background: rgba(128, 128, 128, 0.06);
+}
+
+.fib-steps__item--square { border-left-color: rgba(96, 165, 250, 0.55); }
+.fib-steps__item--skip   { border-left-color: rgba(128, 128, 128, 0.35); opacity: 0.75; }
+.fib-steps__item.is-in   { animation: tx-in-left 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.fib-steps__item.is-latest { box-shadow: 0 0 14px rgba(245, 158, 11, 0.1); }
+
+.fib-viz sup { font-size: 0.7em; }
+
+.fib-viz .tx-anim__result { margin-top: 0.2rem; }
+
+/* ---- 5. Fast doubling ---- */
+.fib-dbl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0 1.2rem 0.4rem;
+}
+
+.fib-dbl__row {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 1fr) minmax(6.5rem, 1fr) minmax(0, 2.4fr);
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(128, 128, 128, 0.06);
+  font-family: 'SFMono-Regular', Consolas, 'Courier New', monospace;
+  font-size: 0.8rem;
+}
+
+.fib-dbl__row--head {
+  background: none;
+  padding-block: 0.2rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary);
+}
+
+.fib-dbl__row.is-answer {
+  background: rgba(245, 158, 11, 0.08);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.fib-dbl__n,
+.fib-dbl__pair {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.35;
+}
+
+.fib-dbl__bin,
+.fib-dbl__calc {
+  font-size: 0.68rem;
+  color: var(--secondary);
+  overflow-wrap: anywhere;
+}
+
+.fib-dbl__pair strong { overflow-wrap: anywhere; }
+
+.fib-dbl__rule {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.fib-dbl__badge {
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.fib-dbl__badge--odd  { background: rgba(245, 158, 11, 0.16); color: var(--accent); }
+.fib-dbl__badge--even { background: rgba(96, 165, 250, 0.16); color: #60a5fa; }
+.fib-dbl__badge--base { background: rgba(128, 128, 128, 0.16); color: var(--secondary); }
+
+.fib-dbl__formula { color: var(--secondary); font-size: 0.72rem; }
+
+@media (max-width: 640px) {
+  .fib-dbl__row {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.3rem 0.6rem;
+  }
+  .fib-dbl__pair { grid-column: 1 / -1; }
+  .fib-dbl__row--head span:last-child { grid-column: 1 / -1; }
+  .fib-dp__cell { width: 2rem; height: 2rem; font-size: 0.78rem; }
+  .post-content .fib-better__step { min-width: 4.5rem; }
+}

@@ -1,0 +1,15 @@
+{{- /*
+  Interactive visual for the Fibonacci post. Logic lives in assets/js/fib-viz.js
+  (loaded once per page). Usage: {{< fib-viz type="tree|dp|pow|doubling" n="13" >}}
+*/ -}}
+{{- $type := .Get "type" -}}
+{{- $labels := dict "tree" "Interactive recursion call tree" "dp" "Step-through of the bottom-up dp table" "pow" "Step-through of binary exponentiation" "doubling" "Fast doubling path" -}}
+{{- if not (.Page.Store.Get "fibVizLoaded") }}
+{{- .Page.Store.Set "fibVizLoaded" true }}
+{{- with resources.Get "js/fib-viz.js" | minify | fingerprint }}
+<script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+{{- end }}
+{{- end }}
+<figure class="tx-anim fib-viz" data-fib-viz="{{ $type }}"{{ with .Get "n" }} data-n="{{ . }}"{{ end }} aria-label="{{ index $labels $type | default "Interactive visual" }}">
+  <noscript><p style="padding:1rem;opacity:.6">Enable JavaScript to view the interactive visual.</p></noscript>
+</figure>

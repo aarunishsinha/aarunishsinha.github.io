@@ -1,0 +1,9 @@
+{{- /* Server-side KaTeX for $...$ / $$...$$ (see markup.goldmark.extensions.passthrough in hugo.toml) */ -}}
+{{- $opts := dict "output" "htmlAndMathml" "displayMode" (eq .Type "block") }}
+{{- with try (transform.ToMath .Inner $opts) }}
+  {{- with .Err }}
+    {{- errorf "KaTeX failed to render math: %s: see %s." . $.Position }}
+  {{- else }}
+    {{- .Value }}
+  {{- end }}
+{{- end -}}

@@ -3,6 +3,15 @@ locale = 'en-us'
 title = "Aarunish's Engineering Notes"
 theme = 'PaperMod'
 
+[markup.goldmark.renderer]
+  unsafe = true   # allow inline HTML (e.g. reference anchors)
+
+[markup.goldmark.extensions.passthrough]
+  enable = true   # hand $...$ / $$...$$ to layouts/_markup/render-passthrough.html
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)'], ['$', '$']]
+
 [taxonomies]
   series = 'series'
   tag = 'tags'

@@ -1,0 +1,30 @@
+{{- /*
+  "Can we do better?" callout for the Fibonacci post, with a progress strip.
+  Usage: {{< fib-better stage="2" >}} — stage = number of approaches covered so far.
+*/ -}}
+{{- $stage := int (.Get "stage" | default 1) -}}
+{{- $steps := slice
+  (dict "name" "Recursion" "cost" "O(2ⁿ)")
+  (dict "name" "Dynamic programming" "cost" "O(n)")
+  (dict "name" "Matrix exponentiation" "cost" "O(log n)")
+  (dict "name" "Fast doubling" "cost" "O(log n), 3 mults")
+  (dict "name" "Further improvements" "cost" "with caveats")
+-}}
+<aside class="fib-better" aria-label="Can we do better?">
+  <p class="fib-better__q">Can we do better?</p>
+  <ol class="fib-better__strip">
+    {{- range $i, $s := $steps }}
+    {{- $n := add $i 1 }}
+    {{- if le $n $stage }}
+    <li class="fib-better__step is-done{{ if eq $n $stage }} is-current{{ end }}">
+      <span class="fib-better__cost">{{ $s.cost }}</span>
+      <span class="fib-better__name">{{ $s.name }}</span>
+    </li>
+    {{- else }}
+    <li class="fib-better__step is-locked" aria-label="not covered yet">
+      <span class="fib-better__cost">?</span>
+    </li>
+    {{- end }}
+    {{- end }}
+  </ol>
+</aside>
