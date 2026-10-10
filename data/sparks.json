@@ -2,28 +2,10 @@
   {
     "id": "birthday-paradox",
     "hook": "In a room of just 23 people, there's a better than even chance two of them share a birthday.",
-    "writeup": "This is called the Birthday Paradox. It trips people up because we instinctively think about whether someone shares our birthday — a 1-in-365 shot. But the question is whether any pair matches, and with 23 people there are 253 possible pairs. Each pair has a small chance of matching, but those small chances compound: P(at least one match) = 1 − (364/365 × 363/365 × … × 343/365) ≈ 50.7%. By 70 people the probability exceeds 99.9%. This same math is why hash collisions and UUID duplicates happen sooner than you'd expect.",
+    "writeup": "This is called the Birthday Paradox. It trips people up because we instinctively think about whether someone shares our birthday, a 1-in-365 shot. But the question is whether any pair matches, and with 23 people there are 253 possible pairs. Each pair has a small chance of matching, but those small chances compound: P(at least one match) = 1 − (364/365 × 363/365 × … × 343/365) ≈ 50.7%. By 70 people the probability exceeds 99.9%. This same math is why hash collisions and UUID duplicates happen sooner than you'd expect.",
     "origin": {
       "label": "Birthday Problem — Wikipedia",
       "url": "https://en.wikipedia.org/wiki/Birthday_problem"
-    }
-  },
-  {
-    "id": "benfords-law",
-    "hook": "In most real-world datasets, the number 1 appears as the leading digit about 30% of the time — not 11% like you'd expect.",
-    "writeup": "Benford's Law says that in many naturally occurring datasets — population counts, stock prices, street addresses, river lengths — the leading digit follows a logarithmic distribution. The digit 1 appears first ~30.1% of the time, while 9 shows up only ~4.6%. The intuition: to go from 1xx to 2xx you need to grow by 100%, but going from 9xx to 10xx only requires ~11% growth. So numbers spend more 'time' with smaller leading digits. Forensic accountants use this to detect fraud — fabricated numbers almost never follow Benford's distribution.",
-    "origin": {
-      "label": "Benford's Law — Better Explained",
-      "url": "https://betterexplained.com/articles/benfords-law/"
-    }
-  },
-  {
-    "id": "coastline-paradox",
-    "hook": "The length of a coastline depends on the length of your ruler — and it approaches infinity as the ruler gets smaller.",
-    "writeup": "The Coastline Paradox shows that coastlines are fractals: the more finely you measure, the longer they get, because every inlet and rock reveals more detail at smaller scales. Measure Britain's coast with a 100km ruler and you get ~2,800km. Use a 50km ruler and it jumps to ~3,400km. Mandelbrot used this observation to develop fractal geometry, arguing that many natural shapes — clouds, mountains, blood vessels — share this property of self-similar roughness at every scale.",
-    "origin": {
-      "label": "How Long Is the Coast of Britain? — Mandelbrot (1967)",
-      "url": "https://en.wikipedia.org/wiki/How_Long_Is_the_Coast_of_Britain%3F_Statistical_Self-Similarity_and_Fractional_Dimension"
     }
   }
 ]
