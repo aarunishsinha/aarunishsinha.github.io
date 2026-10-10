@@ -2,7 +2,7 @@
 title: "Fibonacci: Can We Do Better?"
 date: 2026-10-10T12:00:00+05:30
 draft: false
-description: "Computing fib(n) step by step — from naive recursion, through dynamic programming and matrix exponentiation, to fast doubling — asking the same question at every stage."
+description: "Computing fib(n) step by step from naive recursion, through dynamic programming and matrix exponentiation, to fast doubling. Asking the same question at every stage."
 tags: ["algorithms", "dynamic-programming", "math", "fundamentals"]
 math: true
 ShowToc: true
